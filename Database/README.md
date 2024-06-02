@@ -4,7 +4,7 @@
 ## About the Database
 The original dataset was a single `./sales_data_sample.csv` file. However, to adapt it to a database structure, I split it in various ways and turned it into different tables.
 
-My tables and the DBML query for them are located in `./Table_Management_DBML.sql`, which is in the same path as this document.
+My tables and the DBML query for them are located in `./PostgreSQL/schema_dbml.sql`, which is in the same path as this document.
 
 ## Tables
 
@@ -54,7 +54,7 @@ My tables and the DBML query for them are located in `./Table_Management_DBML.sq
 </details>
 <br>
 
-![DBML-Image](./RelationalDB.png)
+![DBML-Image](./PostgreSQL/RelationalDB.png)
 
 ## Information About Database Tables and Columns
 
@@ -185,7 +185,7 @@ ALTER TABLE "Order_Items" ADD FOREIGN KEY ("PRODUCTCODE") REFERENCES "Products" 
 ## Database Hakkında
 Asıl veri seti tek halde bulunan `./sales_data_sample.csv` veri setiydi. Ancak bunu database yapısına uyarlamak için çeşitli şekillerde böldüm ve farklı tablolar haline getirdim. 
 
-Tablolarım DBML sorgusu da bu dosya ile aynı path'de `./Table_Management_DBML.sql`  ve en bu dökümanın en altında buunabilir.
+Tablolarım DBML sorgusu da bu dosya ile aynı path'de `./PostgreSQL/schema_dbml.sql`  ve en bu dökümanın en altında buunabilir.
 
 ## Tablolar
 
@@ -235,7 +235,7 @@ Tablolarım DBML sorgusu da bu dosya ile aynı path'de `./Table_Management_DBML.
 </details>
 <br>
 
-![DBML-Image](./RelationalDB.png)
+![DBML-Image](./PostgreSQL/RelationalDB.png)
 
 ## Veritabanı Tabloları ve Sütunları Hakkında Bilgi
 
