@@ -1,11 +1,8 @@
 # 📍 Yol Haritası
 
-## Modelin Eğitilmesi
-
 ### Özellik Mühendisliği ve Özellik Seçimi
 1. **Özellik Çıkarımı:**
     - **CUSTOMERS** tablosundan:
-        - Ülke, şehir gibi demografik özellikler
         - Müşteri segmenti (büyük, orta, küçük)
     - **ORDERS** tablosundan:
         - Sipariş tarihi ve frekansı gibi zaman serisi özellikleri
@@ -36,8 +33,6 @@
 2. **Model Eğitimi:**
     - Modelin eğitim verisi üzerinde eğitilmesi
     - Hiperparametre optimizasyonu yapılması (Grid Search, Random Search)
-
-## Modelin Değerlendirilmesi ve İyileştirilmesi
 
 ### Modelin Performansının Değerlendirilmesi
 1. **Performans Metriklerinin Seçimi:**
