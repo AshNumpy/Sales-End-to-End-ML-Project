@@ -4,15 +4,31 @@ from streamlit_option_menu import option_menu
 import warnings
 warnings.filterwarnings("ignore")
 
-
 st.set_page_config(
     page_title="Sales Analysis",
     page_icon=":bar_chart:",
     initial_sidebar_state="collapsed",
 )
 
-st.title('Sales Analysis')
-st.markdown('<span style="color:gray">This app predicts the salesbased on the data provided.</span>', unsafe_allow_html=True)
+# Header
+st.markdown(
+    """
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        footer {
+            background-color: #2c2e30;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+    </style>
+    <h1 style="text-align: center;">Uçtan Uca ML Projesi</h1>      
+    <p style="color: gray;text-align: center;">Satış Verilerinin Analizi ve Tahmini</p>
+    """,
+    unsafe_allow_html=True
+    )
 
 # Menu selection
 menu = option_menu(
@@ -49,3 +65,28 @@ menu = option_menu(
     }
 )
 
+if menu == "Home":
+    from Pages import homepage
+    homepage.display_homepage()
+
+elif menu == "Database":
+    pass
+
+elif menu == "Prediction":
+    pass
+
+elif menu == "Release":
+    pass
+
+elif menu == "Contact":
+    pass
+
+st.markdown(
+    """
+    <footer>
+        <p style="color: white;text-align: center; padding: 50px 0px 0px 0px">&copy; 2024 Uçtan Uca ML Projesi: MIT Licence</p>
+        <p style="color: #FF6601;text-align: center;">İletişim: ramazan.erduran@outlook.com.tr</p>
+    </footer>
+    """,
+    unsafe_allow_html=True
+)
