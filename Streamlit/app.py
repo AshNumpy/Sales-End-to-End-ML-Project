@@ -54,7 +54,7 @@ menu = option_menu(
         "container": {
             "width": "100vw",
             "margin": 0,
-            "background-color": "#1D1F21",
+            "background-color": "#2c2e30",
             },
         "icon": {
             "color": "#FFFFFF"
@@ -83,7 +83,8 @@ if menu == "Home":
     homepage.display_homepage()
 
 elif menu == "Database":
-    pass
+    from Pages import database
+    database.display_database()
 
 elif menu == "Prediction":
     pass
