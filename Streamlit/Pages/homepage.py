@@ -12,14 +12,14 @@ def display_homepage():
     
     container = st.container(
         border=True,
-        height=300
+        height=260
     )
     
     container.markdown(
         """
         <h2> Proje Özeti </h2>
-        
-        Uçtan Uca ML Projesi, satış verilerinin analiz edilmesi, görselleştirilmesi ve tahminler yapılmasını amaçlayan kapsamlı bir projedir. Bu proje kapsamında, satış verileri toplanarak bir veri tabanında saklanacak, Python kullanılarak veriler analiz edilecek ve işlenmiş veriler üzerinden makine öğrenmesi modelleri ile tahminler yapılacaktır. Ayrıca, elde edilen sonuçlar BI tool ile görselleştirilerek, web uygulaması aracılığıyla kullanıcılarla paylaşılacaktır. Proje, veri analizi, iş zekası entegrasyonu ve makine öğrenmesi uygulamalarını bir araya getirerek, kullanıcılara değerli içgörüler sunmayı hedeflemektedir.
+
+        Uçtan Uca ML Projesi, satış verilerinin analiz edilmesi, görselleştirilmesi ve tahminler yapılmasını amaçlar. Bu proje kapsamında, veriler toplanarak bir veri tabanında saklanmış, Python ile analiz edilerek ve makine öğrenmesi modelleri ile tahminler yapılmıştır. Elde edilen sonuçlar Qlik Sense ile görselleştirilip, web uygulaması aracılığıyla kullanıcılarla paylaşılmıştır. Proje, veri analizi, iş zekası entegrasyonu ve makine öğrenmesi uygulamalarını bir araya getirerek değerli içgörüler sunmayı hedefler.        
         """,
         unsafe_allow_html=True
     )
@@ -38,7 +38,7 @@ def display_homepage():
     with col2:
         container = st.container(
             border=True,
-            height=275
+            height=260
         )
     
         container.markdown(
@@ -82,7 +82,7 @@ def display_homepage():
     with col1:
         container = st.container(
             border=True,
-            height=400
+            height=390
         )
         
         container.markdown(
