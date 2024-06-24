@@ -93,7 +93,8 @@ elif menu == "Release":
     pass
 
 elif menu == "Contact":
-    pass
+    from Pages import contact
+    contact.display_contact()
 
 st.markdown(
     """
