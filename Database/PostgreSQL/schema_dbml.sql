@@ -1,67 +1,64 @@
-CREATE TYPE "Order_STATUS" AS ENUM (
-  'Shipped',
-  'Cancelled',
-  'Resolved',
-  'On Hold',
-  'In Process',
-  'Disputed'
+CREATE TABLE "Orders"(
+    "ORDERNUMBER" BIGINT NOT NULL,
+    "ORDERDATE" DATE NOT NULL,
+    "STATUS" VARCHAR(255) NOT NULL,
+    "DEALSIZE" BIGINT NOT NULL,
+    "CUSTOMERNAME" VARCHAR(255) NOT NULL,
+    "CUSTOMER_ID" INTEGER NOT NULL
 );
-
-CREATE TYPE "Order_DEALSIZE" AS ENUM (
-  'Small',
-  'Medium',
-  'Large'
+ALTER TABLE
+    "Orders" ADD PRIMARY KEY("ORDERNUMBER");
+CREATE TABLE "Order Items"(
+    "ORDERNUMBER" BIGINT NOT NULL,
+    "PRODUCTCODE" VARCHAR(255) NOT NULL,
+    "QUANTITYORDERED" BIGINT NOT NULL,
+    "PRICEEACH" FLOAT(53) NOT NULL,
+    "ORDERLINENUMBER" INTEGER NOT NULL,
+    "SALES" FLOAT(53) NOT NULL
 );
-
-CREATE TABLE "Customers" (
-  "ID" bigint PRIMARY KEY,
-  "CUSTOMERNAME" varchar,
-  "PHONE" varchar,
-  "ADDRESSLINE1" varchar,
-  "ADDRESSLINE2" varchar,
-  "CITY" varchar,
-  "STATE" varchar,
-  "POSTALCODE" bigint,
-  "COUNTRY" varchar,
-  "TERRITORY" varchar,
-  "CONTACTLASTNAME" varchar,
-  "CONTACTFIRSTNAME" varchar
+ALTER TABLE
+    "Order Items" ADD PRIMARY KEY("ORDERNUMBER");
+CREATE TABLE "Products"(
+    "PRODUCTCODE" VARCHAR(255) NOT NULL,
+    "PRODUCTLINE" VARCHAR(255) NOT NULL,
+    "MSRP" FLOAT(53) NOT NULL,
+    "CLUSTER" INTEGER NOT NULL,
+    "CLUSTER-PRODUCTLINE" INTEGER NOT NULL
 );
-
-CREATE TABLE "Products" (
-  "PRODUCTCODE" varchar PRIMARY KEY,
-  "PRODUCTLINE" varchar,
-  "MSRP" float
+ALTER TABLE
+    "Products" ADD PRIMARY KEY("PRODUCTCODE");
+COMMENT
+ON COLUMN
+    "Products"."MSRP" IS 'Ürünün Perakende Satış Fiyatı (Manufacturer''s Suggested Retail Price).';
+COMMENT
+ON COLUMN
+    "Products"."CLUSTER" IS 'MSRP''ye göre kümeleme analizi sonuçlarını içerir';
+COMMENT
+ON COLUMN
+    "Products"."CLUSTER-PRODUCTLINE" IS 'PRODUCTLINE''a gruplanmış verilere göre yapılan kümeleme analizi sonuçlarını içerir';
+CREATE TABLE "Customers"(
+    "ID" BIGINT NOT NULL,
+    "CUSTOMERNAME" VARCHAR(255) NOT NULL,
+    "PHONE" BIGINT NOT NULL,
+    "ADDRESSLINE1" VARCHAR(255) NOT NULL,
+    "ADDRESSLINE2" VARCHAR(255) NOT NULL,
+    "CITY" VARCHAR(255) NOT NULL,
+    "STATE" VARCHAR(255) NOT NULL,
+    "POSTALCODE" VARCHAR(255) NOT NULL,
+    "COUNTRY" VARCHAR(255) NOT NULL,
+    "TERRITORY" VARCHAR(255) NOT NULL,
+    "CONTACTLASTNAME" VARCHAR(255) NOT NULL,
+    "CONTACTFIRSTNAME" VARCHAR(255) NOT NULL,
+    "SEGMENT" BIGINT NOT NULL
 );
-
-CREATE TABLE "Orders" (
-  "ORDERNUMBER" bigint PRIMARY KEY,
-  "ORDERDATE" datetime,
-  "STATUS" Order_STATUS,
-  "QTR_ID" varchar,
-  "MONTH_ID" varchar,
-  "YEAR_ID" varchar,
-  "DEALSIZE" Order_DEALSIZE,
-  "CUSTOMERNAME" varchar,
-  "CUSTOMER_ID" bigint
-);
-
-CREATE TABLE "Order_Items" (
-  "ORDERNUMBER" bigint,
-  "PRODUCTCODE" varchar,
-  "QUANTITYORDERED" int,
-  "PRICEEACH" float,
-  "ORDERLINENUMBER" bigint,
-  "SALES" float,
-  PRIMARY KEY ("ORDERNUMBER", "PRODUCTCODE")
-);
-
-COMMENT ON COLUMN "Products"."MSRP" IS 'Ürünün perakende satış fiyatı';
-
-COMMENT ON COLUMN "Orders"."ORDERDATE" IS 'MM/DD/YYYY HH:MM';
-
-ALTER TABLE "Orders" ADD FOREIGN KEY ("CUSTOMER_ID") REFERENCES "Customers" ("ID");
-
-ALTER TABLE "Order_Items" ADD FOREIGN KEY ("ORDERNUMBER") REFERENCES "Orders" ("ORDERNUMBER");
-
-ALTER TABLE "Order_Items" ADD FOREIGN KEY ("PRODUCTCODE") REFERENCES "Products" ("PRODUCTCODE");
+ALTER TABLE
+    "Customers" ADD PRIMARY KEY("ID");
+COMMENT
+ON COLUMN
+    "Customers"."SEGMENT" IS 'Müşteri segment analizi sonuçlarının saklandığı feature';
+ALTER TABLE
+    "Order Items" ADD CONSTRAINT "order items_ordernumber_foreign" FOREIGN KEY("ORDERNUMBER") REFERENCES "Orders"("ORDERNUMBER");
+ALTER TABLE
+    "Orders" ADD CONSTRAINT "orders_customer_id_foreign" FOREIGN KEY("CUSTOMER_ID") REFERENCES "Customers"("ID");
+ALTER TABLE
+    "Order Items" ADD CONSTRAINT "order items_productcode_foreign" FOREIGN KEY("PRODUCTCODE") REFERENCES "Products"("PRODUCTCODE");
