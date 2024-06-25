@@ -184,7 +184,7 @@ def display_prediction(segment_map=segment_map, customer_map=customer_map, clust
     with col1: 
         container = st.container(
             border=True,
-            height=300
+            height=290
         )
         
         container.markdown(
@@ -203,7 +203,36 @@ def display_prediction(segment_map=segment_map, customer_map=customer_map, clust
     with col2:
         container = st.container(
             border=True,
-            height=300
+            height=290
+        )
+        
+        container.markdown(
+            """
+            ## Metrikler
+            
+            🎷 Ortalama Mutlak Hata
+            
+            <p style="
+                    font-weight: bold;
+                    color: white;
+                    padding: 5px 10px 5px 10px;
+                    background-color: #2C2E30;
+                    border-radius: 10px;
+                    text-align: center
+                    ">$848.13</p>
+                    
+            🎺 Ortalama Hata Yüzdesi
+            
+            <p style="
+                    font-weight: bold;
+                    color: white;
+                    padding: 5px 10px 5px 10px;
+                    background-color: #2C2E30;
+                    border-radius: 10px;
+                    text-align: center
+                    ">29.3%</p>
+            """,
+            unsafe_allow_html=True
         )
     
     st.markdown(
