@@ -87,7 +87,8 @@ elif menu == "Database":
     database.display_database()
 
 elif menu == "Prediction":
-    pass
+    from Pages import prediction
+    prediction.display_prediction()
 
 elif menu == "Release":
     pass
