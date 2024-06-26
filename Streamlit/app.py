@@ -91,7 +91,8 @@ elif menu == "Prediction":
     prediction.display_prediction()
 
 elif menu == "Release":
-    pass
+    from Pages import releases
+    releases.display_releases()
 
 elif menu == "Contact":
     from Pages import contact
