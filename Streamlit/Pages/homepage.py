@@ -24,7 +24,9 @@ def display_homepage():
         unsafe_allow_html=True
     )
         
-    brand_line = get_page("Streamlit/HomePage/brand-line.html")   
+    streamlit-configs
+    brand_line = get_page("/mount/src/sales-end-to-end-ml-project/Streamlit/Homepage/brand-line.html")   
+
     
     st.markdown(
        f"""
@@ -54,7 +56,8 @@ def display_homepage():
         
         container = st.container()
         
-        project_details = get_page("Streamlit/HomePage/project-details.html")   
+        streamlit-configs
+        brand_line = get_page("/mount/src/sales-end-to-end-ml-project/Streamlit/Homepage/project-details.html")   
         
         container.markdown(
             """
