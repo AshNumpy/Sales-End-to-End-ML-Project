@@ -54,7 +54,7 @@ def display_homepage():
         
         container = st.container()
         
-        project_details = get_page("./Streamlit/HomePage/project-details.html")   
+        project_details = get_page("../HomePage/project-details.html")   
         
         container.markdown(
             """
